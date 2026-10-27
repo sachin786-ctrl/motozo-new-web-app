@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Disallow internal backend storage & config
+Disallow: /config/
+Disallow: /includes/
+Disallow: /storage/
+Disallow: /section-back/
+
+# Sitemap location
+Sitemap: https://motozo.in/sitemap.xml

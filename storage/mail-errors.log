@@ -1,0 +1,8 @@
+08-10-2026 22:11:40 mail() failed for 8787228805
+08-10-2026 22:18:11 [SMTP Failed] for 8787228805: SMTP Username or Password is empty. Please set your Gmail App Password in config/mail.php.
+08-10-2026 22:23:19 [SMTP Failed] for 8787228805: SMTP Authentication failed. For Gmail, make sure you use a 16-character App Password, not your standard Gmail login password. (Server: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5a478bee46e88-3537cab786fsm451574eec.19 - gsmtp)
+08-10-2026 22:23:57 [SMTP Failed] for 8787228805: SMTP Authentication failed. For Gmail, make sure you use a 16-character App Password, not your standard Gmail login password. (Server: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5a478bee46e88-3537c841648sm524495eec.3 - gsmtp)
+21-10-2026 15:53:12 [SMTP Admin Failed] for 8787228805: Connection failed to tcp://smtp.gmail.com:587: php_network_getaddresses: getaddrinfo for smtp.gmail.com failed: No such host is known.  (0)
+21-10-2026 15:53:12 [SMTP User Confirmation Failed] for sachink27263@gmail.com: Connection failed to tcp://smtp.gmail.com:587: php_network_getaddresses: getaddrinfo for smtp.gmail.com failed: No such host is known.  (0)

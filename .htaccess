@@ -1,0 +1,44 @@
+Options -Indexes
+RewriteEngine On
+
+# 0. Ensure correct MIME types for static assets
+<IfModule mod_mime.c>
+  AddType text/css .css
+  AddType application/javascript .js
+  AddType image/svg+xml .svg
+  AddType image/webp .webp
+  AddType video/mp4 .mp4
+</IfModule>
+
+# 1. Never rewrite static assets (CSS, JS, fonts, media)
+RewriteRule ^assets/ - [L]
+
+# 2. Existing files & directories pass through
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 2. Always redirect extensionless URLs to .php files
+RewriteRule ^car-scrap-dealer-noida/?$ car-scrap-dealer-noida.php [R=301,L]
+RewriteRule ^car-scrap-dealer-delhi/?$ car-scrap-dealer-delhi.php [R=301,L]
+RewriteRule ^car-scrap-dealer-gurgaon/?$ car-scrap-dealer-gurgaon.php [R=301,L]
+RewriteRule ^car-scrap-dealer-ghaziabad/?$ car-scrap-dealer-ghaziabad.php [R=301,L]
+RewriteRule ^car-scrap-dealer-faridabad/?$ car-scrap-dealer-faridabad.php [R=301,L]
+RewriteRule ^car-scrap-dealer-greater-noida/?$ car-scrap-dealer-greater-noida.php [R=301,L]
+RewriteRule ^car-scrap-dealer-jaipur/?$ car-scrap-dealer-jaipur.php [R=301,L]
+RewriteRule ^car-scrap-dealer-rajasthan/?$ car-scrap-dealer-rajasthan.php [R=301,L]
+RewriteRule ^car-scrap-dealer-muzaffarnagar/?$ car-scrap-dealer-muzaffarnagar.php [R=301,L]
+RewriteRule ^car-scrap-dealer-kolkata/?$ car-scrap-dealer-greater-noida.php [R=301,L]
+RewriteRule ^thankyou/?$ thankyou.php [R=301,L]
+
+# 3. Dynamic car-scrap-dealer-{city} (delhi, gurgaon, ghaziabad, faridabad, etc.)
+RewriteRule ^car-scrap-dealer-([a-z0-9-]+)/?$ pages/district.php?district=$1 [L,QSA]
+RewriteRule ^car-scrap-dealer-([a-z0-9-]+)\.php$ pages/district.php?district=$1 [L,QSA]
+
+# 4. Dynamic scrap-car-in-{city}
+RewriteRule ^scrap-car-in-([a-z0-9-]+)/?$ pages/district.php?district=$1 [L,QSA]
+RewriteRule ^scrap-car-in-([a-z0-9-]+)\.php$ pages/district.php?district=$1 [L,QSA]
+
+<FilesMatch "\.(csv|json|jsonl|log)$">
+  Require all denied
+</FilesMatch>

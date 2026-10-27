@@ -1,0 +1,3 @@
+<input type="hidden" name="csrf" value="<?= function_exists('e') ? e($_SESSION['csrf'] ?? '') : htmlspecialchars((string)($_SESSION['csrf'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
+<input type="hidden" name="source_slug" value="<?= function_exists('e') ? e($districtSlug ?? '') : htmlspecialchars((string)($districtSlug ?? ''), ENT_QUOTES, 'UTF-8') ?>">
+<input type="text" name="website" class="d-none" tabindex="-1" autocomplete="off" aria-hidden="true">
